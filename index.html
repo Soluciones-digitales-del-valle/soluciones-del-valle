@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Soluciones Digitales del Valle — Tecnología para resolver problemas reales. Software, IA, automatización, UX/UI y Technical Art."
+    />
+    <title>Soluciones Digitales del Valle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="logo" href="#inicio" aria-label="Soluciones Digitales del Valle — inicio">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Soluciones Digitales<br />del Valle</span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <a href="#filosofia">Filosofía</a>
+          <a href="#capacidades">Capacidades</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#proyectos">Proyectos</a>
+          <a class="nav-cta" href="#contacto">Hablemos</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu-movil"
+          data-nav-toggle
+        >
+          <span class="sr-only">Abrir menú</span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="menu-movil" data-nav-mobile hidden>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Hablemos</a>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="hero-grid"></div>
+          <div class="hero-orb hero-orb--one"></div>
+          <div class="hero-orb hero-orb--two"></div>
+        </div>
+        <div class="container hero-content">
+          <p class="hero-brand reveal" data-reveal>Soluciones Digitales del Valle</p>
+          <h1 class="hero-title reveal" data-reveal data-delay="1">
+            Tecnología para resolver<br />problemas reales.
+          </h1>
+          <p class="hero-subtitle reveal" data-reveal data-delay="2">
+            Diseñamos y desarrollamos soluciones digitales combinando tecnología,
+            inteligencia artificial, procesos, diseño y experiencia.
+          </p>
+          <div class="hero-actions reveal" data-reveal data-delay="3">
+            <a class="btn btn-primary" href="#proyectos">Conocé nuestro trabajo</a>
+            <a class="btn btn-secondary" href="#contacto">Hablemos de tu proyecto</a>
+          </div>
+        </div>
+        <div class="hero-disciplines reveal" data-reveal data-delay="4">
+          <div class="container">
+            <p>Software · IA · Automatización · UX/UI · Technical Art</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILOSOFÍA -->
+      <section class="section philosophy" id="filosofia">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>No empezamos por la tecnología.</h2>
+            <p>
+              Empezamos entendiendo qué problema tiene una organización, cómo
+              trabaja y dónde existe una oportunidad de mejorar. Después
+              diseñamos la tecnología necesaria.
+            </p>
+          </div>
+
+          <ol class="process" aria-label="Nuestro proceso">
+            <li class="process-step reveal" data-reveal>
+              <span class="process-label">Problema</span>
+              <span class="process-dot" aria-hidden="true"></span>
+            </li>
+            <li class="process-arrow reveal" data-reveal aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 12h14M14 6l6 6-6 6" />
+              </svg>
+            </li>
+            <li class="process-step reveal" data-reveal data-delay="1">
+              <span class="process-label">Diagnóstico</span>
+              <span class="process-dot" aria-hidden="true"></span>
+            </li>
+            <li class="process-arrow reveal" data-reveal data-delay="1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 12h14M14 6l6 6-6 6" />
+              </svg>
+            </li>
+            <li class="process-step reveal" data-reveal data-delay="2">
+              <span class="process-label">Diseño</span>
+              <span class="process-dot" aria-hidden="true"></span>
+            </li>
+            <li class="process-arrow reveal" data-reveal data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 12h14M14 6l6 6-6 6" />
+              </svg>
+            </li>
+            <li class="process-step reveal" data-reveal data-delay="3">
+              <span class="process-label">Desarrollo</span>
+              <span class="process-dot" aria-hidden="true"></span>
+            </li>
+            <li class="process-arrow reveal" data-reveal data-delay="3" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 12h14M14 6l6 6-6 6" />
+              </svg>
+            </li>
+            <li class="process-step process-step--final reveal" data-reveal data-delay="4">
+              <span class="process-label">Solución</span>
+              <span class="process-dot" aria-hidden="true"></span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- CAPACIDADES -->
+      <section class="section capabilities" id="capacidades">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>Capacidades</h2>
+            <p>
+              Combinamos distintas disciplinas según el problema que necesitamos
+              resolver.
+            </p>
+          </div>
+
+          <div class="capability-grid">
+            <article class="capability-card reveal" data-reveal>
+              <div class="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="5" y="7" width="22" height="16" rx="2" />
+                  <path d="M11 13h4M11 17h10" />
+                </svg>
+              </div>
+              <h3>Software & Productos Digitales</h3>
+              <p>Aplicaciones, plataformas, sistemas internos y MVPs.</p>
+            </article>
+
+            <article class="capability-card reveal" data-reveal data-delay="1">
+              <div class="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="16" cy="16" r="9" />
+                  <path d="M16 10v6l4 2" />
+                </svg>
+              </div>
+              <h3>IA & Automatización</h3>
+              <p>
+                Inteligencia artificial, agentes, automatización de procesos e
+                integración de sistemas.
+              </p>
+            </article>
+
+            <article class="capability-card reveal" data-reveal data-delay="2">
+              <div class="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M7 22V10l9-4 9 4v12l-9 4-9-4z" />
+                  <path d="M16 6v20M7 10l9 4 9-4" />
+                </svg>
+              </div>
+              <h3>UX/UI & Experiencia</h3>
+              <p>
+                Diseño de interfaces, experiencia de usuario y productos
+                digitales fáciles de entender y utilizar.
+              </p>
+            </article>
+
+            <article class="capability-card reveal" data-reveal data-delay="3">
+              <div class="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 5l10 6v10l-10 6-10-6V11l10-6z" />
+                  <path d="M16 16l10-5M16 16v11M16 16L6 11" />
+                </svg>
+              </div>
+              <h3>3D & Technical Art</h3>
+              <p>
+                Visualización, experiencias interactivas, 3D y tecnologías en
+                tiempo real.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- EQUIPO -->
+      <section class="section team" id="equipo">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>Tres perfiles. Una misma visión.</h2>
+            <p>
+              Trabajamos de manera horizontal, combinando nuestras especialidades
+              para abordar cada proyecto desde diferentes perspectivas.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <article class="team-card reveal" data-reveal>
+              <div class="team-avatar" aria-hidden="true">
+                <span>LB</span>
+              </div>
+              <h3>Lautaro Brito</h3>
+              <p class="team-tags">Gestión · Procesos · QA · Desarrollo · Producto Digital</p>
+              <p class="team-bio">
+                Conecta las necesidades del negocio con la tecnología. Experiencia
+                en gestión de proyectos, análisis funcional, QA/testing,
+                desarrollo y creación de productos digitales.
+              </p>
+              <p class="team-contribution">
+                <span>Aporte</span>
+                Entender el problema y convertirlo en una solución viable.
+              </p>
+            </article>
+
+            <article class="team-card reveal" data-reveal data-delay="1">
+              <div class="team-avatar team-avatar--alt" aria-hidden="true">
+                <span>EL</span>
+              </div>
+              <h3>Emiliano Loguidici</h3>
+              <p class="team-tags">Arquitectura · IA · Agentes · Automatización · Integración</p>
+              <p class="team-bio">
+                Diseña soluciones tecnológicas avanzadas combinando inteligencia
+                artificial, automatización, agentes, integración de sistemas y
+                arquitecturas distribuidas.
+              </p>
+              <p class="team-contribution">
+                <span>Aporte</span>
+                Diseñar la arquitectura tecnológica necesaria para resolver
+                problemas complejos.
+              </p>
+            </article>
+
+            <article class="team-card reveal" data-reveal data-delay="2">
+              <div class="team-avatar team-avatar--sage" aria-hidden="true">
+                <span>JB</span>
+              </div>
+              <h3>Joaquín Brugna</h3>
+              <p class="team-tags">Technical Art · UX/UI · 3D · Experiencias Digitales</p>
+              <p class="team-bio">
+                Integra diseño y tecnología para construir experiencias digitales
+                claras, atractivas e intuitivas. Combina UX/UI, interfaces, 3D,
+                motores en tiempo real, composición visual y Technical Art.
+              </p>
+              <p class="team-contribution">
+                <span>Aporte</span>
+                Transformar la tecnología en una experiencia clara, atractiva y
+                fácil de utilizar.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO TRABAJAMOS -->
+      <section class="section method" id="metodo">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>Cómo trabajamos</h2>
+          </div>
+
+          <ol class="method-list">
+            <li class="method-item reveal" data-reveal>
+              <span class="method-number" aria-hidden="true">01</span>
+              <div>
+                <h3>Entendemos</h3>
+                <p>Conocemos el negocio, el proceso y el problema.</p>
+              </div>
+            </li>
+            <li class="method-item reveal" data-reveal data-delay="1">
+              <span class="method-number" aria-hidden="true">02</span>
+              <div>
+                <h3>Diseñamos</h3>
+                <p>Definimos una solución concreta y viable.</p>
+              </div>
+            </li>
+            <li class="method-item reveal" data-reveal data-delay="2">
+              <span class="method-number" aria-hidden="true">03</span>
+              <div>
+                <h3>Construimos</h3>
+                <p>Desarrollamos, integramos y validamos.</p>
+              </div>
+            </li>
+            <li class="method-item reveal" data-reveal data-delay="3">
+              <span class="method-number" aria-hidden="true">04</span>
+              <div>
+                <h3>Evolucionamos</h3>
+                <p>Medimos, mejoramos y escalamos.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section class="section projects" id="proyectos">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>Proyectos</h2>
+            <p>Soluciones que nacieron de problemas concretos.</p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal" data-reveal>
+              <div class="project-media" data-placeholder="ophidia">
+                <div class="project-placeholder">
+                  <span>OPHIDIA</span>
+                  <small>Imagen del proyecto</small>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-cats">Educación · Conservación · Plataforma digital</p>
+                <h3>OPHIDIA</h3>
+                <p>
+                  Plataforma digital orientada al conocimiento, educación y
+                  gestión de información sobre serpientes.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-reveal data-delay="1">
+              <div class="project-media" data-placeholder="ecodicom">
+                <div class="project-placeholder">
+                  <span>ECODICOM</span>
+                  <small>Imagen del proyecto</small>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-cats">Software · Veterinaria · Gestión</p>
+                <h3>ECODICOM</h3>
+                <p>
+                  Solución de software orientada a la gestión de estudios
+                  veterinarios y trabajo de campo.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-reveal data-delay="2">
+              <div class="project-media" data-placeholder="recorridos">
+                <div class="project-placeholder">
+                  <span>RECORRIDOS</span>
+                  <small>Imagen del proyecto</small>
+                </div>
+              </div>
+              <div class="project-body">
+                <p class="project-cats">360° · Turismo · Experiencias digitales</p>
+                <h3>RECORRIDOS</h3>
+                <p>
+                  Plataforma para crear y explorar experiencias y recorridos
+                  digitales mediante tecnología 360°.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROPUESTA DE VALOR -->
+      <section class="section value" id="valor">
+        <div class="container value-inner reveal" data-reveal>
+          <h2>Tecnología con sentido.</h2>
+          <p class="value-lead">
+            Creemos que la tecnología tiene valor cuando resuelve un problema
+            concreto, mejora un proceso o genera una nueva oportunidad.
+          </p>
+          <ul class="value-points">
+            <li>Problemas reales.</li>
+            <li>Soluciones concretas.</li>
+            <li>Tecnología aplicada.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section cta" id="contacto">
+        <div class="container cta-inner reveal" data-reveal>
+          <h2>¿Tenés un problema que podría resolverse mejor con tecnología?</h2>
+          <p>
+            Contanos qué estás intentando resolver. Podemos empezar por entender
+            el problema.
+          </p>
+          <!-- Reemplazar el href con el email o canal de contacto real -->
+          <a class="btn btn-primary btn-lg" href="mailto:hola@solucionesdelvalle.com">
+            Hablemos de tu proyecto
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">Soluciones Digitales del Valle</p>
+        <p class="footer-note">Equipo tecnológico multidisciplinario</p>
+        <p class="footer-copy">&copy; <span data-year></span> Soluciones Digitales del Valle</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
