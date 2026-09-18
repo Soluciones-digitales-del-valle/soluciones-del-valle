@@ -416,8 +416,8 @@ ol {
 
 .hero {
   position: relative;
+  /* svh = viewport estable; evita saltos al mostrar/ocultar chrome móvil */
   min-height: 100svh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   color: #e8eef6;
@@ -1487,6 +1487,11 @@ main {
     display: flex;
   }
 
+  .hero {
+    /* En desktop dvh ≈ viewport real y no colapsa con chrome */
+    min-height: 100dvh;
+  }
+
   .nav-toggle {
     display: none;
   }
@@ -1567,7 +1572,6 @@ main {
 
   .hero {
     min-height: 100svh;
-    min-height: 100dvh;
   }
 
   .hero-inner {
