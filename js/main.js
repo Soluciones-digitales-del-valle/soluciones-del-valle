@@ -1,5 +1,6 @@
 (() => {
   const header = document.querySelector("[data-header]");
+  const hero = document.querySelector("[data-hero]");
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMobile = document.querySelector("[data-nav-mobile]");
   const yearEl = document.querySelector("[data-year]");
@@ -11,7 +12,13 @@
 
   const onScroll = () => {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 12);
+    const y = window.scrollY;
+    header.classList.toggle("is-scrolled", y > 10);
+
+    if (hero) {
+      const heroBottom = hero.offsetTop + hero.offsetHeight - header.offsetHeight;
+      header.classList.toggle("is-over-hero", y < heroBottom - 24);
+    }
   };
 
   onScroll();
@@ -40,6 +47,16 @@
     });
   }
 
+  // Detectar foto de sierras si existe
+  const landscape = document.querySelector(".hero-landscape");
+  if (landscape) {
+    const img = new Image();
+    img.onload = () => {
+      landscape.style.opacity = "1";
+    };
+    img.src = "assets/hero-sierras.jpg";
+  }
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   requestAnimationFrame(() => {
@@ -60,8 +77,8 @@
       });
     },
     {
-      threshold: 0.16,
-      rootMargin: "0px 0px -6% 0px",
+      threshold: 0.14,
+      rootMargin: "0px 0px -5% 0px",
     }
   );
 

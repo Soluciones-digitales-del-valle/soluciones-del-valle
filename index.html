@@ -27,7 +27,7 @@
     </div>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <header class="site-header" data-header>
+    <header class="site-header is-over-hero" data-header>
       <div class="container header-inner">
         <a class="logo" href="#inicio" aria-label="Soluciones Digitales del Valle — inicio">
           <img
@@ -41,6 +41,7 @@
         <nav class="nav" aria-label="Principal">
           <a href="#filosofia">Filosofía</a>
           <a href="#capacidades">Capacidades</a>
+          <a href="#proyectos">Proyectos</a>
           <a href="#equipo">Equipo</a>
           <a
             class="nav-cta"
@@ -66,6 +67,7 @@
       <div class="nav-mobile" id="menu-movil" data-nav-mobile hidden>
         <a href="#filosofia">Filosofía</a>
         <a href="#capacidades">Capacidades</a>
+        <a href="#proyectos">Proyectos</a>
         <a href="#equipo">Equipo</a>
         <a
           href="https://wa.me/5493544402231"
@@ -80,34 +82,107 @@
     <main id="contenido">
       <!-- HERO -->
       <section class="hero" id="inicio" data-hero>
-        <div class="hero-bg" aria-hidden="true">
-          <div class="hero-vignette"></div>
-        </div>
-        <div class="hero-content">
-          <p class="hero-brand reveal" data-reveal>Soluciones Digitales del Valle</p>
-          <h1 class="hero-title reveal" data-reveal data-delay="1">
-            Tecnología para resolver<br />problemas reales.
-          </h1>
-          <p class="hero-subtitle reveal" data-reveal data-delay="2">
-            Diseñamos y desarrollamos soluciones digitales combinando tecnología,
-            inteligencia artificial, procesos, diseño y experiencia.
-          </p>
-          <div class="hero-actions reveal" data-reveal data-delay="3">
-            <a class="btn btn-primary" href="#capacidades">Conocé nuestro trabajo</a>
-            <a
-              class="btn btn-secondary"
-              href="https://wa.me/5493544402231?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div class="hero-scene" aria-hidden="true">
+          <!-- Reemplazar assets/hero-sierras.jpg por foto real de Traslasierra cuando esté lista -->
+          <div class="hero-landscape"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-horizon-glow"></div>
+          <div class="hero-mountains">
+            <svg
+              class="hero-mountains-svg hero-mountains-svg--desktop"
+              viewBox="0 0 1440 360"
+              preserveAspectRatio="none"
+              focusable="false"
             >
-              Hablemos de tu proyecto
-            </a>
+              <defs>
+                <linearGradient id="mountainFar" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a2438" />
+                  <stop offset="100%" stop-color="#0c121c" />
+                </linearGradient>
+                <linearGradient id="mountainNear" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#121820" />
+                  <stop offset="100%" stop-color="#070a10" />
+                </linearGradient>
+              </defs>
+              <path
+                fill="url(#mountainFar)"
+                d="M0 360V198l70-28 88 36 74-62 102 48 86-54 118 42 78-36 132 50 92-44 108 34 96-28 124 38 88-20 142 28H1440V360Z"
+              />
+              <path
+                fill="url(#mountainNear)"
+                d="M0 360V248l96 14 118-34 148 28 108-24 164 18 136-28 158 22 132-14 172 12H1440V360Z"
+              />
+            </svg>
+            <!-- Mobile: 4 montañas más grandes, crestas suaves -->
+            <svg
+              class="hero-mountains-svg hero-mountains-svg--mobile"
+              viewBox="0 0 400 220"
+              preserveAspectRatio="none"
+              focusable="false"
+            >
+              <defs>
+                <linearGradient id="mountainMobileFar" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1c2638" />
+                  <stop offset="100%" stop-color="#0c121c" />
+                </linearGradient>
+                <linearGradient id="mountainMobileNear" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#141a24" />
+                  <stop offset="100%" stop-color="#070a10" />
+                </linearGradient>
+              </defs>
+              <path
+                fill="url(#mountainMobileFar)"
+                d="M0 220V150
+                   C40 138 55 118 80 112
+                   C105 106 120 128 145 120
+                   C175 110 190 88 220 95
+                   C250 102 265 125 295 118
+                   C325 111 345 128 370 135
+                   C385 140 395 148 400 155
+                   V220Z"
+              />
+              <path
+                fill="url(#mountainMobileNear)"
+                d="M0 220V168
+                   C30 155 45 138 70 132
+                   C100 124 115 148 145 138
+                   C175 128 195 105 230 112
+                   C265 119 280 145 315 138
+                   C345 132 365 148 385 158
+                   C395 163 400 168 400 172
+                   V220Z"
+              />
+            </svg>
           </div>
         </div>
-        <div class="hero-disciplines reveal" data-reveal data-delay="4">
-          <div class="container">
-            <p>Software · IA · Automatización · UX/UI · Technical Art</p>
+
+        <div class="hero-inner">
+          <div class="hero-content">
+            <p class="hero-brand reveal" data-reveal>Soluciones Digitales del Valle</p>
+            <h1 class="hero-title reveal" data-reveal data-delay="1">
+              Tecnología para resolver<br />problemas reales.
+            </h1>
+            <p class="hero-subtitle reveal" data-reveal data-delay="2">
+              Diseñamos y desarrollamos soluciones digitales combinando tecnología,
+              inteligencia artificial, procesos, diseño y experiencia.
+            </p>
+            <div class="hero-actions reveal" data-reveal data-delay="3">
+              <a class="btn btn-primary" href="#capacidades">Conocé nuestro trabajo</a>
+              <a
+                class="btn btn-secondary"
+                href="https://wa.me/5493544402231?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hablemos de tu proyecto
+              </a>
+            </div>
           </div>
+
+          <a class="hero-scroll" href="#filosofia" aria-label="Ir a la siguiente sección">
+            <span class="hero-scroll-mouse" aria-hidden="true"><span></span></span>
+            <span class="hero-scroll-label">Scroll</span>
+          </a>
         </div>
       </section>
 
@@ -233,6 +308,23 @@
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS / PORTFOLIO -->
+      <section class="section portfolio" id="proyectos">
+        <div class="container">
+          <div class="section-intro portfolio-intro reveal" data-reveal>
+            <p class="section-eyebrow">Proyectos</p>
+            <h2>De los problemas a las soluciones.</h2>
+            <p>
+              Desarrollamos soluciones digitales pensadas para resolver necesidades
+              concretas, combinando estrategia, tecnología, diseño y una mirada
+              humana.
+            </p>
+          </div>
+
+          <div class="portfolio-list" data-projects></div>
         </div>
       </section>
 
@@ -395,6 +487,102 @@
         </div>
       </section>
 
+      <!-- LÍNEAS DE SOLUCIÓN -->
+      <section class="section projects" id="soluciones">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <h2>Líneas de solución</h2>
+            <p>Orientadas a problemas concretos.</p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal" data-reveal>
+              <div class="project-body">
+                <p class="project-cats">WhatsApp · Voz · Chat · Call center · Soporte · Ventas</p>
+                <h3>Atención inteligente</h3>
+                <p>
+                  Soluciones de atención automatizada mediante WhatsApp, voz,
+                  chat y call center, orientadas a soporte, ventas y atención al
+                  cliente.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="1">
+              <div class="project-body">
+                <p class="project-cats">Workflows · Tickets · Documentos · Onboarding · Integración</p>
+                <h3>Automatización empresarial</h3>
+                <p>
+                  Automatización de procesos empresariales mediante workflows,
+                  tickets, documentos e integración entre sistemas.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="2">
+              <div class="project-body">
+                <p class="project-cats">Agentes · Multiagente · Human in the Loop · A2A</p>
+                <h3>Agentes y multiagentes</h3>
+                <p>
+                  Desarrollo de agentes de IA capaces de analizar información,
+                  utilizar herramientas, ejecutar acciones y coordinarse con
+                  otros agentes.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="3">
+              <div class="project-body">
+                <p class="project-cats">RAG · Copilotos · Análisis documental · Memoria empresarial</p>
+                <h3>Inteligencia empresarial</h3>
+                <p>
+                  Soluciones de IA para consultar, analizar y utilizar el
+                  conocimiento interno de una organización.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal>
+              <div class="project-body">
+                <p class="project-cats">Monitoreo · IoT · Mantenimiento · Logística · Tiempo real</p>
+                <h3>Operaciones inteligentes</h3>
+                <p>
+                  Aplicación de IA y automatización para monitoreo,
+                  mantenimiento, energía, logística y operaciones en tiempo real.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="1">
+              <div class="project-body">
+                <p class="project-cats">Pagos · Conciliaciones · Fraude · Workflows financieros</p>
+                <h3>Sistemas financieros y transaccionales</h3>
+                <p>
+                  Soluciones para automatizar y analizar operaciones financieras
+                  y transaccionales.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="2">
+              <div class="project-body">
+                <p class="project-cats">Procesos · Supply chain · Blockchain · IA aplicada</p>
+                <h3>Trazabilidad</h3>
+                <p>
+                  Sistemas para registrar, analizar y verificar el recorrido de
+                  procesos, documentos, productos y operaciones.
+                </p>
+              </div>
+            </article>
+            <article class="project-card reveal" data-reveal data-delay="3">
+              <div class="project-body">
+                <p class="project-cats">Integración · Legacy · Event-driven · APIs · Microservicios</p>
+                <h3>Arquitectura y modernización</h3>
+                <p>
+                  Modernización e integración de sistemas existentes para
+                  construir arquitecturas escalables, conectadas y preparadas
+                  para IA.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- PROPUESTA DE VALOR -->
       <section class="section value" id="valor">
         <div class="container value-inner reveal" data-reveal>
@@ -448,6 +636,7 @@
     </footer>
 
     <script src="js/starfield.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
