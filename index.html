@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div class="page-sky" aria-hidden="true">
+      <div class="page-sky-gradient"></div>
+      <canvas class="page-starfield" data-starfield></canvas>
+    </div>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <header class="site-header" data-header>
@@ -77,13 +81,34 @@
 
     <main id="contenido">
       <!-- HERO -->
-      <section class="hero" id="inicio">
+      <section class="hero" id="inicio" data-hero>
         <div class="hero-bg" aria-hidden="true">
-          <div class="hero-grid"></div>
-          <div class="hero-orb hero-orb--one"></div>
-          <div class="hero-orb hero-orb--two"></div>
+          <div class="hero-dawn"></div>
+          <div class="hero-horizon"></div>
+          <div class="hero-mountains">
+            <svg
+              class="hero-mountains-svg"
+              viewBox="0 0 1440 420"
+              preserveAspectRatio="none"
+              focusable="false"
+            >
+              <path
+                class="mountain mountain--far"
+                d="M0 420V210L90 186l70-54 95 42 65-70 110 50 85-58 125 46 75-42 140 54 95-50 115 38 100-32 130 42 95-24 150 32H1440V420Z"
+              />
+              <path
+                class="mountain mountain--mid"
+                d="M0 420V268l95 22 85-46 125 36 95-54 140 40 110-36 155 30 125-40 135 26 115-22 170 20H1440V420Z"
+              />
+              <path
+                class="mountain mountain--near"
+                d="M0 420V318l110 12 130-32 160 24 115-22 180 16 150-26 170 20 145-12 180 10H1440V420Z"
+              />
+            </svg>
+          </div>
+          <div class="hero-vignette"></div>
         </div>
-        <div class="container hero-content">
+        <div class="hero-content">
           <p class="hero-brand reveal" data-reveal>Soluciones Digitales del Valle</p>
           <h1 class="hero-title reveal" data-reveal data-delay="1">
             Tecnología para resolver<br />problemas reales.
@@ -571,6 +596,7 @@
       </div>
     </footer>
 
+    <script src="js/starfield.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

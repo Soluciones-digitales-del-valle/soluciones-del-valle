@@ -16,6 +16,7 @@
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
 
   const closeMobileNav = () => {
     if (!navToggle || !navMobile) return;
@@ -41,7 +42,6 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Entrada suave al cargar
   requestAnimationFrame(() => {
     document.body.classList.add("is-ready");
   });
