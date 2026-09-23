@@ -19,11 +19,124 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("sdv-theme");
+          if (theme === "light" || theme === "dark") {
+            document.documentElement.setAttribute("data-theme", theme);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div class="page-sky" aria-hidden="true">
       <div class="page-sky-gradient"></div>
       <canvas class="page-starfield" data-starfield></canvas>
+      <div class="hero-scene">
+        <div class="hero-landscape"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-horizon-glow"></div>
+        <div class="hero-mountains">
+          <svg
+            class="hero-mountains-svg hero-mountains-svg--desktop"
+            viewBox="0 0 2880 360"
+            preserveAspectRatio="none"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient id="mountainFar" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--mountain-far-top)" />
+                <stop offset="100%" stop-color="var(--mountain-far-bottom)" />
+              </linearGradient>
+              <linearGradient id="mountainNear" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--mountain-near-top)" />
+                <stop offset="100%" stop-color="var(--mountain-near-bottom)" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#mountainFar)"
+              d="M0 360V188
+                 C90 188 130 142 210 156
+                 C290 170 330 118 420 136
+                 C520 158 560 98 660 124
+                 C760 150 800 112 890 130
+                 C990 152 1030 96 1140 122
+                 C1240 144 1350 188 1440 188
+                 C1530 188 1570 142 1650 156
+                 C1730 170 1770 118 1860 136
+                 C1960 158 2000 98 2100 124
+                 C2200 150 2240 112 2330 130
+                 C2430 152 2470 96 2580 122
+                 C2680 144 2790 188 2880 188
+                 V360Z"
+            />
+            <path
+              fill="url(#mountainNear)"
+              d="M0 360V246
+                 C100 246 140 220 230 228
+                 C330 238 380 208 470 218
+                 C580 230 630 204 740 216
+                 C850 228 900 206 1010 218
+                 C1120 230 1340 246 1440 246
+                 C1540 246 1580 220 1670 228
+                 C1770 238 1820 208 1910 218
+                 C2020 230 2070 204 2180 216
+                 C2290 228 2340 206 2450 218
+                 C2560 230 2780 246 2880 246
+                 V360Z"
+            />
+          </svg>
+          <svg
+            class="hero-mountains-svg hero-mountains-svg--mobile"
+            viewBox="0 0 800 220"
+            preserveAspectRatio="none"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient id="mountainMobileFar" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--mountain-far-top)" />
+                <stop offset="100%" stop-color="var(--mountain-far-bottom)" />
+              </linearGradient>
+              <linearGradient id="mountainMobileNear" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--mountain-near-top)" />
+                <stop offset="100%" stop-color="var(--mountain-near-bottom)" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#mountainMobileFar)"
+              d="M0 220V148
+                 C40 148 55 118 90 112
+                 C125 106 150 128 180 120
+                 C215 110 235 88 265 96
+                 C295 104 315 128 345 122
+                 C368 118 380 148 400 148
+                 C440 148 455 118 490 112
+                 C525 106 550 128 580 120
+                 C615 110 635 88 665 96
+                 C695 104 715 128 745 122
+                 C768 118 780 148 800 148
+                 V220Z"
+            />
+            <path
+              fill="url(#mountainMobileNear)"
+              d="M0 220V168
+                 C35 168 50 140 80 134
+                 C115 126 135 150 170 140
+                 C205 130 225 108 260 116
+                 C295 124 320 148 350 142
+                 C372 138 385 168 400 168
+                 C435 168 450 140 480 134
+                 C515 126 535 150 570 140
+                 C605 130 625 108 660 116
+                 C695 124 720 148 750 142
+                 C772 138 785 168 800 168
+                 V220Z"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
@@ -52,17 +165,43 @@
             Hablemos
           </a>
         </nav>
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="menu-movil"
-          data-nav-toggle
-        >
-          <span class="sr-only">Abrir menú</span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="header-tools">
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Activar modo claro"
+          >
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.5" />
+              <path
+                d="M12 3.2v1.8M12 19v1.8M4.9 4.9l1.3 1.3M17.8 17.8l1.3 1.3M3.2 12h1.8M19 12h1.8M4.9 19.1l1.3-1.3M17.8 6.2l1.3-1.3"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M15.4 4.6A7.6 7.6 0 1 0 19.4 15 6.2 6.2 0 0 1 15.4 4.6Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-movil"
+            data-nav-toggle
+          >
+            <span class="sr-only">Abrir menú</span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
       <div class="nav-mobile" id="menu-movil" data-nav-mobile hidden>
         <a href="#filosofia">Filosofía</a>
@@ -82,80 +221,6 @@
     <main id="contenido">
       <!-- HERO -->
       <section class="hero" id="inicio" data-hero>
-        <div class="hero-scene" aria-hidden="true">
-          <!-- Reemplazar assets/hero-sierras.jpg por foto real de Traslasierra cuando esté lista -->
-          <div class="hero-landscape"></div>
-          <div class="hero-overlay"></div>
-          <div class="hero-horizon-glow"></div>
-          <div class="hero-mountains">
-            <svg
-              class="hero-mountains-svg hero-mountains-svg--desktop"
-              viewBox="0 0 1440 360"
-              preserveAspectRatio="none"
-              focusable="false"
-            >
-              <defs>
-                <linearGradient id="mountainFar" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1a2438" />
-                  <stop offset="100%" stop-color="#0c121c" />
-                </linearGradient>
-                <linearGradient id="mountainNear" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#121820" />
-                  <stop offset="100%" stop-color="#070a10" />
-                </linearGradient>
-              </defs>
-              <path
-                fill="url(#mountainFar)"
-                d="M0 360V198l70-28 88 36 74-62 102 48 86-54 118 42 78-36 132 50 92-44 108 34 96-28 124 38 88-20 142 28H1440V360Z"
-              />
-              <path
-                fill="url(#mountainNear)"
-                d="M0 360V248l96 14 118-34 148 28 108-24 164 18 136-28 158 22 132-14 172 12H1440V360Z"
-              />
-            </svg>
-            <!-- Mobile: 4 montañas más grandes, crestas suaves -->
-            <svg
-              class="hero-mountains-svg hero-mountains-svg--mobile"
-              viewBox="0 0 400 220"
-              preserveAspectRatio="none"
-              focusable="false"
-            >
-              <defs>
-                <linearGradient id="mountainMobileFar" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1c2638" />
-                  <stop offset="100%" stop-color="#0c121c" />
-                </linearGradient>
-                <linearGradient id="mountainMobileNear" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#141a24" />
-                  <stop offset="100%" stop-color="#070a10" />
-                </linearGradient>
-              </defs>
-              <path
-                fill="url(#mountainMobileFar)"
-                d="M0 220V150
-                   C40 138 55 118 80 112
-                   C105 106 120 128 145 120
-                   C175 110 190 88 220 95
-                   C250 102 265 125 295 118
-                   C325 111 345 128 370 135
-                   C385 140 395 148 400 155
-                   V220Z"
-              />
-              <path
-                fill="url(#mountainMobileNear)"
-                d="M0 220V168
-                   C30 155 45 138 70 132
-                   C100 124 115 148 145 138
-                   C175 128 195 105 230 112
-                   C265 119 280 145 315 138
-                   C345 132 365 148 385 158
-                   C395 163 400 168 400 172
-                   V220Z"
-              />
-            </svg>
-          </div>
-        </div>
-
         <div class="hero-inner">
           <div class="hero-content">
             <p class="hero-brand reveal" data-reveal>Soluciones Digitales del Valle</p>

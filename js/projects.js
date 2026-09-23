@@ -34,6 +34,23 @@
       featured: false,
       layout: "offset",
     },
+    {
+      name: "Serpentario Machaqway",
+      tagline: "Conocer para cuidar.",
+      narrative:
+        "Una presencia digital clara para un proyecto familiar de Traslasierra dedicado a la fauna.",
+      description:
+        "Sitio web del Serpentario Machaqway, en Villa de Las Rosas, para presentar el espacio, la visita y su trabajo de educación, investigación y protección de serpientes y otros animales de la fauna argentina.",
+      categories: ["Web", "Educación", "Territorio", "Turismo"],
+      image: null,
+      imageAlt:
+        "Composición visual de Serpentario Machaqway: silueta de serpiente sobre el paisaje de Traslasierra",
+      visual: "machaqway",
+      url: "https://serpentariomachaqway.com.ar/",
+      cta: "Ver proyecto",
+      featured: false,
+      layout: "featured",
+    },
   ];
 
   const escapeHtml = (value) =>
@@ -63,6 +80,29 @@
           <span class="portfolio-visual-ring portfolio-visual-ring--inner"></span>
           <span class="portfolio-visual-horizon"></span>
           <span class="portfolio-visual-label">360°</span>
+        </div>
+      `;
+    }
+
+    if (project.visual === "machaqway") {
+      return `
+        <div class="portfolio-visual portfolio-visual--machaqway" aria-hidden="true">
+          <span class="portfolio-visual-stars"></span>
+          <svg class="portfolio-visual-snake" viewBox="0 0 320 180" fill="none">
+            <path
+              class="portfolio-visual-snake-body"
+              d="M28 128
+                 C58 98 78 72 108 78
+                 C142 85 152 128 186 134
+                 C224 141 246 108 268 92
+                 C286 80 298 74 308 70"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <ellipse class="portfolio-visual-snake-head" cx="312" cy="68" rx="7" ry="4.5" transform="rotate(-28 312 68)" />
+            <circle class="portfolio-visual-snake-eye" cx="314" cy="66.5" r="1.1" />
+          </svg>
+          <span class="portfolio-visual-label">Traslasierra</span>
         </div>
       `;
     }

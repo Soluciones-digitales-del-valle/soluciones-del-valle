@@ -67,8 +67,13 @@
       this.onPointerMove = this.onPointerMove.bind(this);
       this.onPointerLeave = this.onPointerLeave.bind(this);
       this.onVisibility = this.onVisibility.bind(this);
+      this.onThemeChange = this.onThemeChange.bind(this);
       this.frame = this.frame.bind(this);
       this.orientationTimer = 0;
+    }
+
+    isLightTheme() {
+      return document.documentElement.getAttribute("data-theme") === "light";
     }
 
     starCount() {
@@ -136,6 +141,7 @@
       }
 
       this.bindPointer();
+      document.addEventListener("sdv:theme", this.onThemeChange);
 
       const now = performance.now();
       this.nextConstellationAt = now + randRange(3000, 6000);
@@ -144,7 +150,9 @@
         (this.isMobile() ? randRange(35000, 60000) : randRange(20000, 40000));
       this.lastTs = now;
 
-      if (this.reduceMotion) {
+      if (this.isLightTheme()) {
+        this.pauseStars();
+      } else if (this.reduceMotion) {
         this.drawStatic();
       } else {
         this.raf = requestAnimationFrame(this.frame);
@@ -178,18 +186,40 @@
       window.removeEventListener("resize", this.onResize);
       window.removeEventListener("orientationchange", this.onOrientation);
       document.removeEventListener("visibilitychange", this.onVisibility);
+      document.removeEventListener("sdv:theme", this.onThemeChange);
       window.visualViewport?.removeEventListener("resize", this.onResize);
       this.unbindPointer();
     }
 
-    onVisibility() {
-      this.visible = !document.hidden;
-      if (this.visible && !this.reduceMotion) {
+    pauseStars() {
+      cancelAnimationFrame(this.raf);
+      this.raf = 0;
+      if (this.ctx) this.ctx.clearRect(0, 0, this.width, this.height);
+    }
+
+    resumeStars() {
+      if (this.isLightTheme() || !this.visible) return;
+      if (this.reduceMotion) {
+        this.drawStatic();
+        return;
+      }
+      if (!this.raf) {
         this.lastTs = performance.now();
         this.raf = requestAnimationFrame(this.frame);
-      } else if (!this.visible) {
-        cancelAnimationFrame(this.raf);
-        this.raf = 0;
+      }
+    }
+
+    onThemeChange() {
+      if (this.isLightTheme()) this.pauseStars();
+      else this.resumeStars();
+    }
+
+    onVisibility() {
+      this.visible = !document.hidden;
+      if (this.visible) {
+        this.resumeStars();
+      } else {
+        this.pauseStars();
       }
     }
 
@@ -400,7 +430,7 @@
     }
 
     frame(now) {
-      if (!this.visible || this.reduceMotion) return;
+      if (!this.visible || this.reduceMotion || this.isLightTheme()) return;
 
       const dt = Math.min(32, now - this.lastTs) / 1000;
       this.lastTs = now;

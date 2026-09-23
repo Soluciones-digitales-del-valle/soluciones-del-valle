@@ -17,6 +17,11 @@
   --accent-soft: rgba(108, 154, 139, 0.14);
   --border: rgba(232, 238, 246, 0.1);
   --border-strong: rgba(232, 238, 246, 0.2);
+  --page-bg: #0a1422;
+  --mountain-far-top: #1a2438;
+  --mountain-far-bottom: #0c121c;
+  --mountain-near-top: #121820;
+  --mountain-near-bottom: #070a10;
 
   --radius: 14px;
   --radius-sm: 10px;
@@ -43,7 +48,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 16px);
-  background: #0a1422;
+  background: var(--page-bg);
+  color-scheme: dark;
 }
 
 body {
@@ -52,7 +58,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text);
-  background: #0a1422;
+  background: var(--page-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -216,6 +222,45 @@ ol {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #f4f7fb;
+  border: 1px solid transparent;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(232, 238, 246, 0.22);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+
+html:not([data-theme="light"]) .theme-icon--sun,
+html[data-theme="light"] .theme-icon--moon {
+  display: block;
 }
 
 .logo-img {
@@ -407,7 +452,8 @@ ol {
     transition: none !important;
   }
 
-  .hero-horizon-glow {
+  .hero-horizon-glow,
+  .hero-mountains-svg {
     animation: none !important;
   }
 }
@@ -421,8 +467,6 @@ ol {
   display: flex;
   flex-direction: column;
   color: #e8eef6;
-  overflow: clip;
-  isolation: isolate;
 }
 
 .hero-scene {
@@ -496,17 +540,29 @@ ol {
 
 .hero-mountains {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: -2px;
+  right: -2px;
+  bottom: -1px;
   height: clamp(140px, 28vh, 300px);
   z-index: 3;
+  overflow: hidden;
 }
 
 .hero-mountains-svg {
   display: block;
-  width: 100%;
+  width: 200%;
   height: 100%;
+  animation: mountain-drift 90s linear infinite;
+  will-change: transform;
+}
+
+@keyframes mountain-drift {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .hero-mountains-svg--mobile {
@@ -614,19 +670,6 @@ ol {
     transform: translateY(8px);
     opacity: 0.35;
   }
-}
-
-/* Puente hero → contenido */
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 72px;
-  z-index: 4;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(10, 20, 34, 0.35));
 }
 
 /* ---------- Sections ---------- */
@@ -1097,6 +1140,35 @@ main {
   color: rgba(232, 238, 246, 0.55);
 }
 
+.portfolio-visual--machaqway {
+  background:
+    radial-gradient(ellipse 50% 40% at 72% 28%, rgba(196, 150, 90, 0.16), transparent 58%),
+    radial-gradient(ellipse 42% 50% at 22% 72%, rgba(108, 154, 139, 0.14), transparent 60%),
+    linear-gradient(160deg, #101820 0%, #182418 48%, #1c261c 100%);
+}
+
+.portfolio-visual-snake {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 22%;
+  width: 84%;
+  height: 58%;
+}
+
+.portfolio-visual-snake-body {
+  stroke: rgba(210, 176, 108, 0.78);
+  stroke-width: 7;
+}
+
+.portfolio-visual-snake-head {
+  fill: rgba(210, 176, 108, 0.82);
+}
+
+.portfolio-visual-snake-eye {
+  fill: rgba(12, 18, 16, 0.75);
+}
+
 .portfolio-visual--ecodicom {
   background:
     radial-gradient(ellipse 50% 40% at 30% 30%, rgba(108, 154, 139, 0.14), transparent 58%),
@@ -1487,6 +1559,10 @@ main {
     display: flex;
   }
 
+  .header-tools {
+    margin-left: 0.15rem;
+  }
+
   .hero {
     /* En desktop dvh ≈ viewport real y no colapsa con chrome */
     min-height: 100dvh;
@@ -1690,4 +1766,237 @@ main {
   .hero-title {
     font-size: 2.7rem;
   }
+}
+
+/* ---------- Modo claro (día) ---------- */
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --night-deep: #d7e4f0;
+  --night: #e7eef5;
+  --night-mid: #c7d7e6;
+  --surface: rgba(255, 255, 255, 0.62);
+  --surface-solid: #f4f7fb;
+  --text: #1a2433;
+  --text-secondary: rgba(36, 52, 72, 0.68);
+  --primary: #3d6f94;
+  --primary-soft: rgba(61, 111, 148, 0.12);
+  --accent: #4f8a72;
+  --accent-soft: rgba(79, 138, 114, 0.14);
+  --border: rgba(26, 36, 51, 0.1);
+  --border-strong: rgba(26, 36, 51, 0.2);
+  --page-bg: #d5e4f0;
+  --mountain-far-top: #7f93a8;
+  --mountain-far-bottom: #5d7084;
+  --mountain-near-top: #5a6b7c;
+  --mountain-near-bottom: #3d4c5a;
+}
+
+html[data-theme="light"] .page-sky-gradient {
+  background:
+    radial-gradient(ellipse 70% 50% at 78% 8%, rgba(255, 236, 196, 0.72), transparent 58%),
+    radial-gradient(ellipse 55% 42% at 18% 18%, rgba(186, 220, 245, 0.55), transparent 60%),
+    linear-gradient(180deg, #7eb4d8 0%, #b4d3ea 38%, #dce8f2 68%, #eadfcb 100%);
+}
+
+html[data-theme="light"] .page-starfield {
+  opacity: 0;
+  visibility: hidden;
+}
+
+html[data-theme="light"] .site-header.is-over-hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent);
+}
+
+html[data-theme="light"] .site-header.is-scrolled:not(.is-over-hero),
+html[data-theme="light"] .site-header:not(.is-over-hero) {
+  background: rgba(244, 247, 251, 0.78);
+}
+
+html[data-theme="light"] .site-header.is-over-hero.is-scrolled {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent);
+}
+
+html[data-theme="light"] .logo-img,
+html[data-theme="light"] .footer-logo {
+  filter: none;
+}
+
+html[data-theme="light"] .nav a {
+  color: rgba(26, 36, 51, 0.72);
+}
+
+html[data-theme="light"] .nav a:hover {
+  color: #1a2433;
+}
+
+html[data-theme="light"] .nav-cta {
+  border-color: rgba(26, 36, 51, 0.22);
+  color: #1a2433 !important;
+}
+
+html[data-theme="light"] .nav-cta:hover {
+  background: rgba(26, 36, 51, 0.05);
+  border-color: rgba(26, 36, 51, 0.4);
+}
+
+html[data-theme="light"] .theme-toggle {
+  color: #1a2433;
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+  background: rgba(26, 36, 51, 0.06);
+  border-color: rgba(26, 36, 51, 0.16);
+}
+
+html[data-theme="light"] .nav-toggle span:not(.sr-only) {
+  background: #1a2433;
+}
+
+html[data-theme="light"] .nav-mobile {
+  background: rgba(244, 247, 251, 0.96);
+}
+
+html[data-theme="light"] .nav-mobile a {
+  color: #1a2433;
+}
+
+html[data-theme="light"] .btn-primary {
+  background: #1a2433;
+  color: #f4f7fb;
+}
+
+html[data-theme="light"] .btn-primary:hover {
+  background: #243246;
+}
+
+html[data-theme="light"] .btn-secondary {
+  color: #1a2433;
+  border-color: rgba(26, 36, 51, 0.28);
+}
+
+html[data-theme="light"] .btn-secondary:hover {
+  background: rgba(26, 36, 51, 0.05);
+  border-color: rgba(26, 36, 51, 0.45);
+}
+
+html[data-theme="light"] .hero {
+  color: #1a2433;
+}
+
+html[data-theme="light"] .hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 32%, rgba(234, 223, 203, 0.12) 72%, rgba(90, 107, 124, 0.18) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 46%, transparent 72%);
+}
+
+html[data-theme="light"] .hero-horizon-glow {
+  background:
+    radial-gradient(
+      ellipse 70% 34% at 50% 78%,
+      rgba(255, 214, 130, 0.42) 0%,
+      rgba(255, 186, 110, 0.14) 46%,
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 196, 120, 0.08) 55%,
+      rgba(255, 176, 96, 0.16) 78%,
+      transparent 100%
+    );
+}
+
+html[data-theme="light"] .hero-brand {
+  color: #3d6f94;
+}
+
+html[data-theme="light"] .hero-title {
+  color: #152033;
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.28);
+}
+
+html[data-theme="light"] .hero-subtitle {
+  color: rgba(26, 36, 51, 0.72);
+}
+
+html[data-theme="light"] .hero-scroll {
+  color: rgba(26, 36, 51, 0.62);
+}
+
+html[data-theme="light"] .hero-scroll-mouse {
+  border-color: rgba(26, 36, 51, 0.38);
+}
+
+html[data-theme="light"] .hero-scroll-mouse span {
+  background: rgba(26, 36, 51, 0.72);
+}
+
+html[data-theme="light"] .portfolio-media {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+html[data-theme="light"] .portfolio-visual--recorridos {
+  background:
+    radial-gradient(ellipse 55% 45% at 68% 38%, rgba(255, 220, 160, 0.28), transparent 62%),
+    radial-gradient(ellipse 40% 55% at 22% 70%, rgba(126, 180, 212, 0.22), transparent 60%),
+    linear-gradient(165deg, #c7dcea 0%, #e4eef5 52%, #f3eee4 100%);
+}
+
+html[data-theme="light"] .portfolio-visual--machaqway {
+  background:
+    radial-gradient(ellipse 50% 40% at 72% 28%, rgba(210, 168, 96, 0.22), transparent 58%),
+    radial-gradient(ellipse 42% 50% at 22% 72%, rgba(126, 168, 140, 0.2), transparent 60%),
+    linear-gradient(160deg, #d8e4dc 0%, #e8eee4 52%, #f0ebe0 100%);
+}
+
+html[data-theme="light"] .portfolio-visual-snake-body {
+  stroke: rgba(92, 72, 36, 0.7);
+}
+
+html[data-theme="light"] .portfolio-visual-snake-head {
+  fill: rgba(92, 72, 36, 0.72);
+}
+
+html[data-theme="light"] .portfolio-visual-snake-eye {
+  fill: rgba(244, 247, 240, 0.85);
+}
+
+html[data-theme="light"] .portfolio-visual--ecodicom {
+  background:
+    radial-gradient(ellipse 50% 40% at 30% 30%, rgba(126, 180, 160, 0.18), transparent 58%),
+    linear-gradient(155deg, #d5e4ef 0%, #e8eef4 55%, #f2eee6 100%);
+}
+
+html[data-theme="light"] .portfolio-visual-window {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(26, 36, 51, 0.12);
+  box-shadow: 0 18px 40px rgba(36, 52, 72, 0.12);
+}
+
+html[data-theme="light"] .portfolio-visual-label {
+  color: rgba(26, 36, 51, 0.48);
+}
+
+html[data-theme="light"] .portfolio-item:hover .portfolio-name,
+html[data-theme="light"] .portfolio-item:focus-within .portfolio-name {
+  color: #0f1724;
+}
+
+html[data-theme="light"] .portfolio-cta:hover,
+html[data-theme="light"] .portfolio-cta:focus-visible {
+  color: #2a5676;
+}
+
+html[data-theme="light"] .value-inner {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+html[data-theme="light"] .team-avatar--alt {
+  background: rgba(61, 111, 148, 0.1);
+  color: #3d6f94;
+}
+
+html[data-theme="light"] .team-avatar--sage {
+  color: #3d7a64;
 }

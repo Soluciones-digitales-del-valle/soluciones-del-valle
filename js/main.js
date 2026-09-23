@@ -57,6 +57,39 @@
     img.src = "assets/hero-sierras.jpg";
   }
 
+  const THEME_KEY = "sdv-theme";
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+
+  const currentTheme = () =>
+    document.documentElement.getAttribute("data-theme") === "light"
+      ? "light"
+      : "dark";
+
+  const applyTheme = (theme) => {
+    const next = theme === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (e) {}
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        "aria-label",
+        next === "light" ? "Activar modo oscuro" : "Activar modo claro"
+      );
+    }
+    document.dispatchEvent(
+      new CustomEvent("sdv:theme", { detail: { theme: next } })
+    );
+  };
+
+  applyTheme(currentTheme());
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      applyTheme(currentTheme() === "light" ? "dark" : "light");
+    });
+  }
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   requestAnimationFrame(() => {
